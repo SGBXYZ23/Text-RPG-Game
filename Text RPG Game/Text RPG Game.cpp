@@ -3,10 +3,38 @@
 //
 
 #include <iostream>
+#include <string>
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    cout << "================================\n";
+    cout << "          MY RPG GAME\n";
+    cout << "================================\n";
+
+    cout << "\n1. New Game\n";
+    cout << "2. Exit\n";
+
+    int choice;
+
+    cout << "\nSelect an option: ";
+    cin >> choice;
+
+    if (choice == 1)
+    {
+        cout << "\nStarting new game...\n";
+    }
+    else if (choice == 2)
+    {
+        cout << "\nThanks for playing!\n";
+    }
+    else
+    {
+        cout << "\nInvalid option!\n";
+    }
+
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
