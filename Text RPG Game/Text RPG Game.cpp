@@ -23,7 +23,7 @@ int main()
 
     if (choice == 1)
     {
-        cout << "\nStarting new game...\n";
+        cout << "\nStarting the game...\n";
     }
     else if (choice == 2)
     {
