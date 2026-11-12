@@ -4,34 +4,54 @@
 
 #include <iostream>
 #include <string>
-
+#include "Class System.h"
 using namespace std;
 
 int main()
 {
+    int choice = 0;
     cout << "================================\n";
     cout << "          MY NEW RPG GAME\n";
     cout << "================================\n";
 
+    
     cout << "\n1. Start Your Journey!\n";
     cout << "2. Exit\n";
-
-    int choice;
-
-    cout << "\nSelect an option: ";
     cin >> choice;
 
     if (choice == 1)
     {
-        cout << "\nStarting the game...\n";
-    }
-    else if (choice == 2)
-    {
-        cout << "\nThanks for playing!\n";
+
+        int choice2 = 0;
+        Adventurer* player;
+        std::cout << "Pick 1: Wizard, 2: Warrior, 3: Cleric\n";
+        std::cin >> choice2;
+
+        switch (choice2)
+        {
+        case 1:
+            player = new Wizard();
+            break;
+
+        case 2:
+            player = new Warrior();
+            break;
+
+        case 3:
+            player = new Cleric();
+            break;
+
+        default:
+            player = new Wizard();
+            break;
+        }
+
+        player->combat();
     }
     else
     {
-        cout << "\nInvalid option!\n";
+        std::cout << "Bye\n";
+        return 0;
     }
 
     return 0;
