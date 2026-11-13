@@ -24,7 +24,7 @@ int main()
 
         int choice2 = 0;
         Adventurer* player;
-        std::cout << "Pick 1: Wizard, 2: Warrior, 3: Cleric\n";
+        std::cout << "Pick 1: Wizard, 2: Warrior, 3: Cleric, 4: Beast Tamer\n";
         std::cin >> choice2;
 
         switch (choice2)
@@ -41,11 +41,16 @@ int main()
             player = new Cleric();
             break;
 
+		case 4:
+			player = new BeastTamer();
+			break;
+
         default:
             player = new Wizard();
             break;
         }
 
+		displayStats(player);
         player->combat();
     }
     else
