@@ -20,6 +20,10 @@ public:
 	int Intelligence;
 	int Speed;
 
+	int Level;
+	int XP;
+	int XPToNextLevel;
+
 	Adventurer()
 	{
 		HP = 0;
@@ -73,6 +77,10 @@ public:
 		Defense = 3;
 		Intelligence = 10;
 		Speed = 5;
+
+		Level = 1;
+		XP = 0;
+		XPToNextLevel = 100;
 	}
 
 	virtual void statsUpgrade() override
@@ -91,7 +99,7 @@ public:
 
 	virtual int combat() 
 	{
-		std::cout << "I'm a wizard harry\n";return 1;
+		std::cout << "I'm a wizard!\n";return 1;
 	}
 };
 
@@ -109,6 +117,10 @@ public:
 		Defense = 5;
 		Intelligence = 1;
 		Speed = 3;
+
+		Level = 1;
+		XP = 0;
+		XPToNextLevel = 100;
 	}
 
 	virtual void statsUpgrade() override
@@ -140,6 +152,9 @@ void displayStats(Adventurer* player)
 	std::cout << "Defense: " << player->Defense << std::endl;
 	std::cout << "Intelligence: " << player->Intelligence << std::endl;
 	std::cout << "Speed: " << player->Speed << std::endl;
+	std::cout << "Level: " << player->Level << std::endl;
+	std::cout << "XP: " << player->XP << std::endl;
+	std::cout << "XP to Next Level: " << player->XPToNextLevel << std::endl;
 }
 
 class Cleric : public Adventurer
@@ -156,6 +171,10 @@ public:
 	Defense = 5;
 	Intelligence = 6;
 	Speed = 4;
+
+	Level = 1;
+	XP = 0;
+	XPToNextLevel = 100;
 }
 
 	virtual void statsUpgrade() override
@@ -186,14 +205,15 @@ public:
 
 	BeastTamer()
 	{
-		HP = 85;
-		MaxHp = 85;
-		AP = 6;
-		MaxAP = 6;
-		Strength = 4;
+		HP = 80;
+		MaxHp = 80;
+		AP = 4;
+		MaxAP = 4;
+		Strength = 5;
 		Defense = 5;
-		Intelligence = 6;
-		Speed = 4;
+		Intelligence = 3;
+		Speed = 5;
+
 	}
 
 	virtual void statsUpgrade() override
@@ -204,7 +224,7 @@ public:
 		MaxAP += 2;
 		Strength += 3;
 		Defense += 2;
-		Intelligence += 3;
+		Intelligence += 4;
 		Speed += 2;
 	}
 

@@ -57,6 +57,8 @@ int main()
         std::cout << "Bye\n";
         return 0;
     }
+    while (true) {
 
+    }
     return 0;
 }
