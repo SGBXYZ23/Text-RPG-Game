@@ -21,7 +21,6 @@ int main()
 
     if (choice == 1)
     {
-
         int choice2 = 0;
         Adventurer* player;
         std::cout << "Pick 1: Wizard, 2: Warrior, 3: Cleric, 4: Beast Tamer\n";

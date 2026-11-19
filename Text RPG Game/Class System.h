@@ -8,6 +8,9 @@ using namespace std;
 class Adventurer
 {
 public:
+
+	string Name;
+
 	int HP;
 	int MaxHp;
 	int AP;
@@ -19,12 +22,30 @@ public:
 
 	Adventurer()
 	{
+		HP = 0;
+		MaxHp = 0;
+		AP = 0;
+		MaxAP = 0;
+		Strength = 0;
+		Defense = 0;
+		Intelligence = 0;
+		Speed = 0;
 
+		Level = 1;
+		XP = 0;
+		XPToNextLevel = 100;
 	}
 
 	virtual void statsUpgrade()
 	{
-		Speed += 5;
+		HP += 1;
+		MaxHp += 1;
+		AP += 1;
+		MaxAP += 1;
+		Strength += 1;
+		Defense += 1;
+		Intelligence += 1;
+		Speed += 1;
 	}
 
 	virtual ~Adventurer() {}
@@ -56,8 +77,14 @@ public:
 
 	virtual void statsUpgrade() override
 	{
-		Defense += 50;
-		Speed += 5;
+		HP += 5;
+		MaxHp += 5;
+		AP += 1;
+		MaxAP += 2;
+		Strength += 1;
+		Defense += 1;
+		Intelligence += 3;
+		Speed += 1;
 	}
 
 	virtual ~Wizard() {}
@@ -86,7 +113,14 @@ public:
 
 	virtual void statsUpgrade() override
 	{
-		Strength += 10;
+		HP += 10;
+		MaxHp += 10;
+		AP += 1;
+		MaxAP += 1;
+		Strength += 2;
+		Defense += 4;
+		Intelligence += 1;
+		Speed += 1;
 	}
 
 	virtual ~Warrior() {}
@@ -123,6 +157,19 @@ public:
 	Intelligence = 6;
 	Speed = 4;
 }
+
+	virtual void statsUpgrade() override
+	{
+		HP += 6;
+		MaxHp += 6;
+		AP += 1;
+		MaxAP += 2;
+		Strength += 3;
+		Defense += 3;
+		Intelligence += 5;
+		Speed += 1;
+	}
+
 	virtual ~Cleric() {}
 
 	virtual int combat()
@@ -148,6 +195,19 @@ public:
 		Intelligence = 6;
 		Speed = 4;
 	}
+
+	virtual void statsUpgrade() override
+	{
+		HP += 4;
+		MaxHp += 4;
+		AP += 2;
+		MaxAP += 2;
+		Strength += 3;
+		Defense += 2;
+		Intelligence += 3;
+		Speed += 2;
+	}
+
 	virtual ~BeastTamer() {}
 
 	virtual int combat()
