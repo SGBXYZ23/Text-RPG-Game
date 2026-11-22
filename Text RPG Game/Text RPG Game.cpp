@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <string>
+#include <memory>
 #include "Class System.h"
 using namespace std;
 
@@ -51,6 +52,8 @@ int main()
 
 		displayStats(player);
         player->combat();
+
+
     }
     else
     {

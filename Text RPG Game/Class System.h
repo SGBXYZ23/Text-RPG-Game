@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -26,6 +27,8 @@ public:
 
 	Adventurer()
 	{
+		Name = "";
+
 		HP = 0;
 		MaxHp = 0;
 		AP = 0;
@@ -52,16 +55,14 @@ public:
 		Speed += 1;
 	}
 
+	// Finds what class the player picks (for choices later on)
+
+	virtual string getClassName() = 0;
+
 	virtual ~Adventurer() {}
 
 	virtual int combat() = 0;
 };
-
-// Level up system
-
-int Level;
-int XP;
-int XPToNextLevel;
 
 class Wizard : public Adventurer
 {
@@ -81,6 +82,11 @@ public:
 		Level = 1;
 		XP = 0;
 		XPToNextLevel = 100;
+	}
+
+	virtual string getClassName() override
+	{
+		return "Wizard";
 	}
 
 	virtual void statsUpgrade() override
@@ -123,6 +129,11 @@ public:
 		XPToNextLevel = 100;
 	}
 
+	virtual string getClassName() override
+	{
+		return "Warrior";
+	}
+
 	virtual void statsUpgrade() override
 	{
 		HP += 10;
@@ -139,13 +150,18 @@ public:
 
 	virtual int combat()
 	{
-		std::cout << "I'm a Warruir harry\n";
+		std::cout << "I'm a Warrior!\n";
 		return 1;
 	}
 };
 
 void displayStats(Adventurer* player)
 {
+	// Displays the player's name and class
+	std::cout << "Name: " << player->Name << std::endl;
+	std::cout << "Class: " << player->getClassName() << std::endl;
+
+	// Displays the player's stats
 	std::cout << "HP: " << player->HP << "/" << player->MaxHp << std::endl;
 	std::cout << "AP: " << player->AP << "/" << player->MaxAP << std::endl;
 	std::cout << "Strength: " << player->Strength << std::endl;
@@ -176,6 +192,11 @@ public:
 	XP = 0;
 	XPToNextLevel = 100;
 }
+
+	virtual string getClassName() override
+	{
+		return "Cleric";
+	}
 
 	virtual void statsUpgrade() override
 	{
@@ -214,6 +235,14 @@ public:
 		Intelligence = 3;
 		Speed = 5;
 
+		Level = 1;
+		XP = 0;
+		XPToNextLevel = 100;
+	}
+
+	virtual string getClassName() override
+	{
+		return "Beast Tamer";
 	}
 
 	virtual void statsUpgrade() override
