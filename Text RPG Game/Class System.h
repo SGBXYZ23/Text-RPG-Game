@@ -25,9 +25,9 @@ public:
 	int XP;
 	int XPToNextLevel;
 
-	Adventurer()
+	Adventurer(const string& name)
 	{
-		Name = "";
+		Name = name;
 
 		HP = 0;
 		MaxHp = 0;
@@ -55,7 +55,7 @@ public:
 		Speed += 1;
 	}
 
-	// Finds what class the player picks (for choices later on)
+	// Finds what class the player picks
 
 	virtual string getClassName() = 0;
 
@@ -66,15 +66,60 @@ public:
 
 class Wizard : public Adventurer
 {
+
+private:
+
+	int ManaBurstTurnsRemaining = 0;
+	int OriginalIntelligence = 0;
+	bool ManaBurstActive = false;
+
+
 public:
 
-	Wizard()
+	// Activates Mana Burst skill for Mage
+	bool activateManaBurst()
+	{
+		if (ManaBurstActive)
+			return false;
+
+		OriginalIntelligence = Intelligence;
+		Intelligence += 5;
+
+		ManaBurstTurnsRemaining = 2;
+		ManaBurstActive = true;
+
+		cout << "\nMana Burst activated! Intelligence increased by 5!\n";
+
+		return true;
+	}
+
+	// Reduces the remaining buff duration
+	void updateManaBurst()
+	{
+		if (!ManaBurstActive)
+			return;
+
+		ManaBurstTurnsRemaining--;
+
+		if (ManaBurstTurnsRemaining <= 0)
+		{
+			Intelligence = OriginalIntelligence;
+			ManaBurstActive = false;
+
+			cout << "\nMana Burst has worn off!\n";
+		}
+	}
+
+
+public:
+
+	Wizard(const string& name) : Adventurer(name)
 	{
 		HP = 70;
 		MaxHp = 70;
-		AP = 7;
-		MaxAP = 7;
-		Strength = 2;
+		AP = 8;
+		MaxAP = 8;
+		Strength = 4;
 		Defense = 3;
 		Intelligence = 10;
 		Speed = 5;
@@ -107,20 +152,22 @@ public:
 	{
 		std::cout << "I'm a wizard!\n";return 1;
 	}
+
+
 };
 
 class Warrior : public Adventurer
 {
 public:
 
-	Warrior()
+	Warrior(const string& name) : Adventurer(name)
 	{
-		HP = 100;
-		MaxHp = 100;
-		AP = 5;
-		MaxAP = 5;
-		Strength = 7;
-		Defense = 5;
+		HP = 120;
+		MaxHp = 120;
+		AP = 6;
+		MaxAP = 6;
+		Strength = 11;
+		Defense = 10;
 		Intelligence = 1;
 		Speed = 3;
 
@@ -155,7 +202,7 @@ public:
 	}
 };
 
-void displayStats(Adventurer* player)
+inline void displayStats(Adventurer* player)
 {
 	// Displays the player's name and class
 	std::cout << "Name: " << player->Name << std::endl;
@@ -177,12 +224,12 @@ class Cleric : public Adventurer
 {
 public:
 
-	Cleric()
+	Cleric(const string& name) : Adventurer(name)
 {
-	HP = 85;
-	MaxHp = 85;
-	AP = 6;
-	MaxAP = 6;
+	HP = 95;
+	MaxHp = 95;
+	AP = 9;
+	MaxAP = 9;
 	Strength = 4;
 	Defense = 5;
 	Intelligence = 6;
@@ -224,14 +271,14 @@ class BeastTamer : public Adventurer
 {
 public:
 
-	BeastTamer()
+	BeastTamer(const string& name) : Adventurer(name)
 	{
-		HP = 80;
-		MaxHp = 80;
-		AP = 4;
-		MaxAP = 4;
-		Strength = 5;
-		Defense = 5;
+		HP = 85;
+		MaxHp = 85;
+		AP = 7;
+		MaxAP = 7;
+		Strength = 8;
+		Defense = 11;
 		Intelligence = 3;
 		Speed = 5;
 

@@ -18,13 +18,25 @@
     <ClCompile Include="Text RPG Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StageLoop.cpp">
+    <ClCompile Include="Stage Loop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Class System.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Party System.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage System.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy System.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Combat System.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

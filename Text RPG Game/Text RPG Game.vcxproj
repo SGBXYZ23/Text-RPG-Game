@@ -139,11 +139,15 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="StageLoop.cpp" />
+    <ClCompile Include="Stage Loop.cpp" />
     <ClCompile Include="Text RPG Game.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Class System.h" />
+    <ClInclude Include="Combat System.h" />
+    <ClInclude Include="Enemy System.h" />
+    <ClInclude Include="Party System.h" />
+    <ClInclude Include="Stage System.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
